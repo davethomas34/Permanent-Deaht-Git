@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Permanent-Deaht-Git</title>
+    <meta name="description" content="One error. No survivors. A joke CI gauntlet for developers with nothing left to lose.">
+    <meta property="og:title" content="Permanent-Deaht-Git">
+    <meta property="og:description" content="One error. No survivors.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Permanent-Deaht-Git home">
+        <span class="brand-mark">PDG</span>
+        <span>Permanent-Deaht-Git</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#rules">Rules</a>
+        <a href="#install">Install</a>
+        <a href="#certificate">Certificate</a>
+        <a class="nav-button" href="https://github.com/davethomas34/Permanent-Deaht-Git">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero-section">
+        <div class="hero-copy">
+          <p class="eyebrow">Code Guillotine armed</p>
+          <h1>Permanent-Deaht-Git</h1>
+          <p class="hero-text">One error. Total codebase annihilation. No imports. No mercy. No undo.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#install">Install Guillotine</a>
+            <a class="button secondary" href="#rules">View Rules</a>
+          </div>
+        </div>
+
+        <div class="dashboard" aria-label="Permanent-Deaht-Git status dashboard">
+          <div class="dashboard-top">
+            <div>
+              <p class="panel-label">Target</p>
+              <strong>main</strong>
+            </div>
+            <div class="armed-pill">Armed</div>
+          </div>
+
+          <div class="terminal-panel">
+            <div class="terminal-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <pre id="terminalLog" aria-live="polite"></pre>
+          </div>
+
+          <div class="check-grid">
+            <article class="check-card passed">
+              <span class="check-icon">OK</span>
+              <div>
+                <h2>Fresh-start verification</h2>
+                <p>No imported kingdom detected.</p>
+              </div>
+            </article>
+            <article class="check-card danger">
+              <span class="check-icon">X</span>
+              <div>
+                <h2>Commit failed. 0 survivors.</h2>
+                <p>Temporary runner checkout erased for dramatic effect.</p>
+              </div>
+            </article>
+            <article class="check-card warning">
+              <span class="check-icon">!</span>
+              <div>
+                <h2>Ponytail pending</h2>
+                <p>Certificate unlocks only after a clean build.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Guillotine warning">
+        <span>Start from void</span>
+        <span>Every check must pass</span>
+        <span>Failure blocks merge</span>
+        <span>Annihilation is theatrical</span>
+      </section>
+
+      <section class="section" id="rules">
+        <div class="section-heading">
+          <p class="eyebrow">The doctrine</p>
+          <h2>The Rules</h2>
+        </div>
+        <div class="rules-grid">
+          <article>
+            <span>01</span>
+            <h3>Start From Void</h3>
+            <p>The first commit must look like a beginning, not an archaeological import.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>No Data Necromancy</h3>
+            <p>Archives, dumps, dependency folders, and mystery binaries are rejected.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Every Check Passes</h3>
+            <p>Install, lint, test, and build get their moment before the blade drops.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>No Actual Harm</h3>
+            <p>The runner checkout can be erased. Your real local repo is not touched.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section install-section" id="install">
+        <div class="section-heading">
+          <p class="eyebrow">Copy, paste, regret</p>
+          <h2>Install the Guillotine</h2>
+        </div>
+        <div class="install-layout">
+          <div class="code-shell">
+            <div class="code-toolbar">
+              <span>.github/workflows/permanent-deaht.yml</span>
+              <button class="copy-button" type="button" data-copy-target="workflowCode">Copy</button>
+            </div>
+            <pre><code id="workflowCode">name: Permanent Deaht Git
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  guillotine:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/guillotine.mjs
+      - run: npm ci
+        if: hashFiles('package-lock.json') != ''
+      - run: npm install
+        if: hashFiles('package.json') != '' &amp;&amp; hashFiles('package-lock.json') == ''
+      - run: npm run lint --if-present
+        if: hashFiles('package.json') != ''
+      - run: npm test --if-present
+        if: hashFiles('package.json') != ''
+      - run: npm run build --if-present
+        if: hashFiles('package.json') != ''
+      - run: node scripts/certificate.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: survivor-certificate
+          path: artifacts/
+      - name: Theatrical runner annihilation
+        if: failure()
+        run: |
+          echo "Commit failed. 0 survivors."
+          echo "Erasing temporary runner checkout only."
+          find "$GITHUB_WORKSPACE" -mindepth 1 -maxdepth 1 -exec rm -rf {} +</code></pre>
+          </div>
+
+          <div class="death-log">
+            <div class="panel-heading">
+              <p class="panel-label">Death log</p>
+              <strong>Guillotine History</strong>
+            </div>
+            <ol id="deathLog"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section certificate-section" id="certificate">
+        <div class="section-heading">
+          <p class="eyebrow">Clean build detected</p>
+          <h2>Certificate of Completion</h2>
+        </div>
+        <div class="certificate-layout">
+          <form class="certificate-form" id="certificateForm">
+            <label>
+              Survivor name
+              <input id="survivorName" type="text" value="davethomas34" maxlength="32">
+            </label>
+            <label>
+              Commit SHA
+              <input id="commitSha" type="text" value="deaht42" maxlength="18">
+            </label>
+            <button class="button primary" type="submit">Mint Preview</button>
+          </form>
+
+          <article class="certificate-card" aria-label="Certificate preview">
+            <p class="certificate-kicker">Permanent-Deaht-Git</p>
+            <h2>Certificate of Completion</h2>
+            <p>This certifies that <strong id="certName">davethomas34</strong> survived the guillotine.</p>
+            <div class="certificate-row">
+              <span>Errors</span>
+              <strong>0</strong>
+            </div>
+            <div class="certificate-row">
+              <span>Mercy</span>
+              <strong>None</strong>
+            </div>
+            <div class="certificate-row">
+              <span>Commit</span>
+              <strong id="certSha">deaht42</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>A joke workflow with real checks and fake doom.</p>
+      <a href="#top">Return to the blade</a>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,59 @@
+name: Permanent Deaht Git
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  guillotine:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Arm code guillotine
+        run: node scripts/guillotine.mjs
+
+      - name: Install locked dependencies
+        if: hashFiles('package-lock.json') != ''
+        run: npm ci
+
+      - name: Install unlocked dependencies
+        if: hashFiles('package.json') != '' && hashFiles('package-lock.json') == ''
+        run: npm install
+
+      - name: Lint
+        if: hashFiles('package.json') != ''
+        run: npm run lint --if-present
+
+      - name: Test
+        if: hashFiles('package.json') != ''
+        run: npm test --if-present
+
+      - name: Build
+        if: hashFiles('package.json') != ''
+        run: npm run build --if-present
+
+      - name: Mint survivor certificate
+        run: node scripts/certificate.mjs
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: survivor-certificate
+          path: artifacts/
+
+      - name: Theatrical runner annihilation
+        if: failure()
+        run: |
+          echo "Commit failed. 0 survivors."
+          echo "Erasing temporary GitHub Actions runner checkout only."
+          find "$GITHUB_WORKSPACE" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+
