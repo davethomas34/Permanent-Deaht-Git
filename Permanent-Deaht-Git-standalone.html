@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -20,7 +20,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
     <style>
-/* Inlined from site.css */
 :root {
   color-scheme: dark;
   --bg: #0a0b0d;
@@ -42,38 +41,24 @@
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   overflow-x: hidden;
   background:
-    linear-gradient(90deg, rgba(73, 12, 11, 0.24), transparent 18%, transparent 82%, rgba(73, 12, 11, 0.18)),
-    radial-gradient(1200px 620px at 50% -15%, rgba(76, 113, 120, 0.16), transparent 58%),
-    radial-gradient(900px 560px at 18% 4%, rgba(229, 53, 43, 0.16), transparent 64%),
-    radial-gradient(700px 420px at 86% 16%, rgba(229, 53, 43, 0.09), transparent 70%),
+    radial-gradient(1100px 560px at 50% -12%, rgba(229, 53, 43, 0.08), transparent 60%),
     var(--bg);
   color: var(--text);
   font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  letter-spacing: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
 
-button,
-input {
-  font: inherit;
-}
-
+/* ---------- header ---------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -118,9 +103,7 @@ input {
   font-size: 0.95rem;
 }
 
-.nav-links a:hover {
-  color: var(--text);
-}
+.nav-links a:hover { color: var(--text); }
 
 .status-pill,
 .armed-label {
@@ -138,94 +121,29 @@ input {
   text-transform: uppercase;
 }
 
+/* ---------- guillotine marks (clean SVG) ---------- */
 .guillotine-mark,
 .button-mark,
 .guillotine-large,
-.og-emblem,
-.seal,
-.certificate-watermark {
-  position: relative;
-  display: inline-block;
+.muted-mark {
+  display: block;
+  flex: 0 0 auto;
   color: var(--red);
 }
 
-.guillotine-mark {
-  width: 34px;
-  height: 38px;
-  flex: 0 0 auto;
+.guillotine-mark { width: 30px; height: 36px; }
+.button-mark { width: 19px; height: 22px; color: #fff; }
+.guillotine-large {
+  width: 116px;
+  height: 138px;
+  color: #ff3b32;
+  filter: drop-shadow(0 0 16px rgba(229, 53, 43, 0.5));
 }
+.muted-mark { width: 23px; height: 28px; color: var(--dim); }
 
-.button-mark {
-  width: 20px;
-  height: 22px;
-}
+.section-title .guillotine-mark { margin-top: 0.15rem; }
 
-.guillotine-large,
-.og-emblem {
-  width: 118px;
-  height: 132px;
-}
-
-.seal {
-  width: 64px;
-  height: 64px;
-}
-
-.certificate-watermark {
-  position: absolute;
-  right: clamp(1rem, 5vw, 3rem);
-  top: clamp(1rem, 4vw, 2rem);
-  width: clamp(7rem, 17vw, 11rem);
-  height: clamp(8rem, 19vw, 12rem);
-  color: rgba(178, 58, 46, 0.1);
-  transform: rotate(8deg);
-  pointer-events: none;
-}
-
-.guillotine-mark::before,
-.button-mark::before,
-.guillotine-large::before,
-.og-emblem::before,
-.seal::before,
-.certificate-watermark::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(currentColor 0 0) 15% 4% / 70% 8% no-repeat,
-    linear-gradient(currentColor 0 0) 25% 12% / 7% 78% no-repeat,
-    linear-gradient(currentColor 0 0) 68% 12% / 7% 78% no-repeat,
-    linear-gradient(currentColor 0 0) 12% 88% / 76% 8% no-repeat,
-    linear-gradient(currentColor 0 0) 36% 18% / 28% 7% no-repeat,
-    linear-gradient(130deg, transparent 0 49%, rgba(255,255,255,.42) 50% 53%, transparent 54%) 36% 30% / 34% 32% no-repeat,
-    linear-gradient(135deg, color-mix(in srgb, currentColor 78%, white), currentColor 52%, color-mix(in srgb, currentColor 62%, black)) 36% 30% / 34% 32% no-repeat;
-  filter: drop-shadow(0 0 12px rgba(229, 53, 43, 0.42));
-}
-
-.guillotine-mark::after,
-.button-mark::after,
-.guillotine-large::after,
-.og-emblem::after,
-.seal::after,
-.certificate-watermark::after {
-  content: "";
-  position: absolute;
-  left: 37%;
-  top: 30%;
-  width: 33%;
-  height: 32%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.36), currentColor 48%, rgba(70, 0, 0, 0.42));
-  clip-path: polygon(0 0, 100% 0, 100% 52%, 0 100%);
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.45);
-}
-
-.muted-mark {
-  color: var(--dim);
-  width: 26px;
-  height: 30px;
-  vertical-align: middle;
-}
-
+/* ---------- hero shell ---------- */
 .hero-shell {
   position: relative;
   isolation: isolate;
@@ -242,248 +160,74 @@ input {
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 14%, rgba(215, 232, 226, 0.08), transparent 23rem),
-    radial-gradient(circle at 18% 9%, rgba(255, 102, 48, 0.12), transparent 22rem),
-    radial-gradient(circle at 85% 72%, rgba(229, 53, 43, 0.12), transparent 18rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 28%, transparent 70%, rgba(255, 255, 255, 0.02));
-}
-
-.noise-field::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.028) 0 1px, transparent 1px 5px),
-    radial-gradient(ellipse at 50% 100%, rgba(30, 52, 58, 0.28), transparent 45%);
-  mix-blend-mode: screen;
-  opacity: 0.55;
+    radial-gradient(circle at 28% 16%, rgba(229, 53, 43, 0.10), transparent 22rem),
+    radial-gradient(circle at 82% 30%, rgba(229, 53, 43, 0.06), transparent 20rem);
 }
 
 .noise-field::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(120% 90% at 50% 20%, transparent 34%, rgba(10, 11, 13, 0.82) 100%);
+  background: radial-gradient(120% 92% at 32% 22%, transparent 38%, rgba(10, 11, 13, 0.78) 100%);
 }
 
 .binary {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 7rem;
+  width: 6rem;
   color: var(--text);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   line-height: 1.55;
-  letter-spacing: 0.28rem;
-  opacity: 0.045;
+  letter-spacing: 0.3rem;
+  opacity: 0.04;
   writing-mode: vertical-rl;
 }
-
-.binary.left {
-  left: 0;
-}
-
-.binary.right {
-  right: 0;
-}
-
-.haze {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(18px);
-}
-
-.haze.one {
-  left: -4rem;
-  top: 3rem;
-  width: 45rem;
-  height: 29rem;
-  background: radial-gradient(closest-side, rgba(229, 53, 43, 0.23), transparent 72%);
-}
-
-.haze.two {
-  right: -10rem;
-  top: -4rem;
-  width: 32rem;
-  height: 32rem;
-  background: radial-gradient(closest-side, rgba(92, 134, 145, 0.16), transparent 72%);
-}
-
-.code-rain {
-  position: absolute;
-  z-index: 1;
-  max-width: 19rem;
-  color: #95c6cc;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8rem;
-  line-height: 1.65;
-  opacity: 0.12;
-  text-shadow: 0 0 12px rgba(91, 190, 205, 0.3);
-}
+.binary.left { left: 0.5rem; }
+.binary.right { right: 0.5rem; }
 
 .binary-skull {
   position: absolute;
-  z-index: 1;
-  left: 36%;
-  top: 1rem;
-  color: rgba(215, 232, 226, 0.08);
+  z-index: 0;
+  left: 1.5%;
+  top: 4.5rem;
+  color: rgba(233, 231, 225, 0.06);
   font-family: "IBM Plex Mono", monospace;
-  font-size: clamp(1.2rem, 2.6vw, 2.5rem);
+  font-size: clamp(1.3rem, 2.8vw, 2.7rem);
   font-weight: 700;
-  line-height: 0.78;
-  letter-spacing: 0.08em;
+  line-height: 0.82;
+  letter-spacing: 0.12em;
   white-space: pre;
-  transform: rotate(-4deg);
-  text-shadow: 0 0 18px rgba(229, 53, 43, 0.18);
-}
-
-.left-code {
-  left: 1.5rem;
-  top: 2.5rem;
-}
-
-.right-code {
-  right: 1.5rem;
-  top: 7rem;
-  text-align: right;
+  text-shadow: 0 0 16px rgba(229, 53, 43, 0.12);
 }
 
 .specter {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   color: #dce7e5;
   line-height: 1;
-  opacity: 0.06;
-  filter: grayscale(1) blur(1.2px) drop-shadow(0 0 20px rgba(229, 53, 43, 0.35));
+  opacity: 0.05;
+  filter: grayscale(1) blur(1.5px) drop-shadow(0 0 22px rgba(229, 53, 43, 0.3));
 }
+.skull-a { right: -3rem; top: 3rem; font-size: clamp(9rem, 18vw, 20rem); transform: rotate(8deg); }
+.skull-b { left: -4rem; bottom: -5rem; font-size: clamp(8rem, 14vw, 15rem); transform: rotate(-9deg); opacity: 0.04; }
 
-.skull-a {
-  right: -3rem;
-  top: 4rem;
-  font-size: clamp(9rem, 18vw, 20rem);
-  transform: rotate(8deg);
-}
-
-.skull-b {
-  left: -4rem;
-  bottom: -5rem;
-  font-size: clamp(8rem, 15vw, 16rem);
-  transform: rotate(-9deg);
-}
-
-.skull-c {
-  left: 44%;
-  top: -1.8rem;
-  color: #fff5ec;
-  font-size: clamp(2.8rem, 6vw, 5.2rem);
-  opacity: 0.2;
-  filter: grayscale(1) drop-shadow(0 0 22px rgba(229, 53, 43, 0.65));
-}
-
-.graveyard {
+.haze {
   position: absolute;
-  z-index: 1;
-  right: 4vw;
-  bottom: 1.8rem;
-  color: rgba(151, 175, 175, 0.18);
-  font-size: clamp(2rem, 5vw, 5rem);
-  line-height: 0.65;
-  transform: rotate(-5deg);
-}
-
-.bone {
-  position: absolute;
-  z-index: 1;
-  width: clamp(5rem, 11vw, 9rem);
-  height: 1rem;
-  background: rgba(210, 219, 212, 0.055);
   border-radius: 999px;
-  transform: rotate(-38deg);
-  filter: blur(0.3px);
+  filter: blur(20px);
+  pointer-events: none;
+}
+.haze.one {
+  left: -3rem;
+  top: 3.5rem;
+  width: 42rem;
+  height: 26rem;
+  background: radial-gradient(closest-side, rgba(229, 53, 43, 0.16), transparent 72%);
 }
 
-.bone::before,
-.bone::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 1.45rem;
-  height: 1.45rem;
-  background: inherit;
-  border-radius: 50%;
-  transform: translateY(-50%);
-  box-shadow: 0 1rem 0 rgba(210, 219, 212, 0.045);
-}
-
-.bone::before {
-  left: -0.72rem;
-}
-
-.bone::after {
-  right: -0.72rem;
-}
-
-.bone-a {
-  right: 21%;
-  top: 38%;
-}
-
-.bone-b {
-  right: 8%;
-  bottom: 24%;
-  transform: rotate(28deg);
-}
-
-.bone-c {
-  left: 28%;
-  bottom: 14%;
-  transform: rotate(18deg);
-}
-
-.fireline {
-  position: absolute;
-  z-index: 2;
-  width: 15rem;
-  height: 0.25rem;
-  background: linear-gradient(90deg, transparent, #ff7a2d 18%, #e5352b 52%, transparent);
-  filter: blur(0.2px) drop-shadow(0 0 10px rgba(229, 53, 43, 0.8));
-  opacity: 0.8;
-}
-
-.fireline::after {
-  content: "";
-  position: absolute;
-  inset: -0.5rem 12%;
-  background: radial-gradient(closest-side, rgba(255, 132, 40, 0.55), transparent 75%);
-  filter: blur(8px);
-}
-
-.ember-field {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  opacity: 0.45;
-  background:
-    radial-gradient(circle at 8% 92%, rgba(255, 114, 37, 0.7) 0 1px, transparent 2px),
-    radial-gradient(circle at 18% 16%, rgba(255, 55, 38, 0.56) 0 1px, transparent 2px),
-    radial-gradient(circle at 74% 9%, rgba(255, 114, 37, 0.5) 0 1px, transparent 2px),
-    radial-gradient(circle at 90% 78%, rgba(255, 55, 38, 0.46) 0 1px, transparent 2px);
-  filter: drop-shadow(0 0 6px rgba(229, 53, 43, 0.85));
-}
-
-.top-left {
-  left: -2rem;
-  top: 1.2rem;
-  transform: rotate(-18deg);
-}
-
-.bottom-right {
-  right: -2rem;
-  bottom: 1.8rem;
-  transform: rotate(-14deg);
-}
-
+/* ---------- hero grid ---------- */
 .hero-grid {
   position: relative;
   display: grid;
@@ -498,12 +242,12 @@ input {
 .install-card,
 .certificate-form,
 .certificate-card,
-.og-card {
-  min-width: 0;
-}
+.og-card { min-width: 0; }
+
+.hero-copy { position: relative; }
 
 .overline {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
   color: var(--red);
   font-size: 0.86rem;
   font-weight: 700;
@@ -511,46 +255,70 @@ input {
   text-transform: uppercase;
 }
 
-h1,
-h2,
-h3,
-p {
-  margin-top: 0;
+h1, h2, h3, p { margin-top: 0; }
+
+/* ---------- title with floating skulls + drips ---------- */
+.title-wrap {
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+  padding-top: 2.7rem;
+  margin: 0 0 2.4rem;
 }
 
 h1 {
-  margin: 0 0 1.25rem;
-  width: max-content;
-  max-width: min(100%, 10ch);
+  margin: 0;
   color: transparent;
   background: linear-gradient(180deg, #f5f1e8 0%, #f0e8dc 52%, #e7675a 82%, #cf2419 100%);
   -webkit-background-clip: text;
   background-clip: text;
   font-family: "Anton", Impact, sans-serif;
-  font-size: clamp(4.8rem, 10vw, 7.5rem);
+  font-size: clamp(4.6rem, 9.4vw, 7.2rem);
   font-weight: 400;
   line-height: 0.88;
   text-transform: uppercase;
   filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 26px rgba(229, 53, 43, 0.4));
 }
 
-.hero-copy {
-  position: relative;
+.float-skull {
+  position: absolute;
+  z-index: 2;
+  line-height: 1;
+  color: #f3ede6;
+  filter: drop-shadow(0 0 14px rgba(229, 53, 43, 0.75));
+  animation: pdg-float 4s ease-in-out infinite, pdg-flicker 3s ease-in-out infinite;
 }
+.float-skull.s1 { left: 5%; top: 0.3rem; font-size: 1.9rem; --r: -12deg; }
+.float-skull.s2 { left: 41%; top: -0.5rem; font-size: 2.7rem; --r: 4deg; animation-delay: 0.4s, 0.3s; }
+.float-skull.s3 { left: 73%; top: 0.5rem; font-size: 1.8rem; --r: 13deg; animation-delay: 0.8s, 0.6s; }
 
-.hero-copy::before {
+.drip {
+  position: absolute;
+  z-index: 1;
+  width: 7px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(180deg, #cf2419, #7d130c);
+  box-shadow: 0 0 9px rgba(229, 53, 43, 0.5);
+}
+.drip::after {
   content: "";
   position: absolute;
-  left: -2rem;
-  top: -1rem;
-  width: min(44rem, 112%);
-  height: 118%;
-  background:
-    radial-gradient(ellipse at 30% 38%, rgba(229, 53, 43, 0.18), transparent 58%),
-    linear-gradient(90deg, rgba(85, 12, 12, 0.2), transparent);
-  z-index: -1;
-  filter: blur(10px);
+  bottom: -6px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #9c170e;
+  box-shadow: 0 0 7px rgba(229, 53, 43, 0.55);
+  transform: translate(-50%, 0);
+  animation: pdg-drip 3.8s ease-in infinite;
 }
+.drip.d1 { left: 8%; bottom: -1.5rem; height: 1.8rem; }
+.drip.d2 { left: 31%; bottom: -2.3rem; height: 2.7rem; animation-delay: 0.6s; }
+.drip.d2::after { animation-delay: 0.6s; }
+.drip.d3 { left: 55%; bottom: -1.1rem; height: 1.3rem; }
+.drip.d4 { left: 78%; bottom: -2rem; height: 2.2rem; }
+.drip.d4::after { animation-delay: 0.3s; }
 
 .danger-line {
   margin-bottom: 0.65rem;
@@ -583,23 +351,23 @@ h1 {
   border: 1px solid transparent;
   font-size: 1.05rem;
   font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+.button:hover { transform: translateY(-1px); }
 
 .primary {
   color: #fff;
   background: var(--red);
   box-shadow: 0 8px 30px rgba(229, 53, 43, 0.38);
 }
-
-.primary .button-mark {
-  color: #fff;
-}
+.primary:hover { box-shadow: 0 10px 36px rgba(229, 53, 43, 0.5); }
 
 .secondary {
   color: var(--text);
   background: #14161a;
   border-color: var(--line-2);
 }
+.secondary:hover { border-color: #3a3f48; }
 
 .ritual-strip {
   display: inline-flex;
@@ -615,13 +383,13 @@ h1 {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-
 .ritual-strip span + span::before {
   content: "/";
   margin: 0 0.75rem;
   color: var(--red);
 }
 
+/* ---------- CI panel ---------- */
 .ci-panel,
 .dark-card,
 .install-card,
@@ -637,21 +405,16 @@ h1 {
   overflow: hidden;
   padding: 1.75rem 1.9rem 1.9rem;
 }
-
 .ci-panel::before {
   content: "";
   position: absolute;
   inset: -1px;
   pointer-events: none;
   background:
-    radial-gradient(circle at 16% 48%, rgba(229, 53, 43, 0.18), transparent 19rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 34%);
+    radial-gradient(circle at 16% 48%, rgba(229, 53, 43, 0.15), transparent 19rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 34%);
 }
-
-.ci-panel > * {
-  position: relative;
-  z-index: 1;
-}
+.ci-panel > * { position: relative; z-index: 1; }
 
 .panel-heading {
   justify-content: space-between;
@@ -663,7 +426,6 @@ h1 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-
 .panel-heading strong {
   display: inline-flex;
   align-items: center;
@@ -682,6 +444,7 @@ h1 {
   box-shadow: 0 0 8px currentColor;
   animation: pdg-pulse 1.7s ease-in-out infinite;
 }
+.status-pill .live-dot { color: var(--red); }
 
 .ci-core {
   display: grid;
@@ -696,30 +459,22 @@ h1 {
   height: 182px;
   place-items: center;
 }
-
 .emblem::before,
 .emblem-ring {
   content: "";
   position: absolute;
   border-radius: 50%;
 }
-
 .emblem::before {
   inset: 0;
   border: 1px solid rgba(229, 53, 43, 0.24);
-  background:
-    radial-gradient(circle at 50% 50%, rgba(229, 53, 43, 0.09), transparent 48%),
-    conic-gradient(from 90deg, transparent 0 28%, rgba(229, 53, 43, 0.18) 30% 32%, transparent 34% 65%, rgba(229, 53, 43, 0.16) 66% 68%, transparent 70% 100%);
+  background: radial-gradient(circle at 50% 50%, rgba(229, 53, 43, 0.09), transparent 52%);
 }
-
 .emblem-ring {
   inset: 12px;
   border: 2px solid rgba(229, 53, 43, 0.5);
   box-shadow: 0 0 58px rgba(229, 53, 43, 0.42), inset 0 0 36px rgba(229, 53, 43, 0.22);
-}
-
-.guillotine-large {
-  color: #ff3b32;
+  animation: pdg-glow 3.4s ease-in-out infinite;
 }
 
 .mono-fail {
@@ -729,10 +484,7 @@ h1 {
   font-size: 1.55rem;
   font-weight: 700;
 }
-
-.muted {
-  color: var(--muted);
-}
+.muted { color: var(--muted); }
 
 .check-list {
   display: grid;
@@ -741,17 +493,12 @@ h1 {
   padding: 0;
   list-style: none;
 }
-
 .check-list li {
   gap: 0.75rem;
   padding: 0.62rem 0;
   border-bottom: 1px solid #1d2026;
 }
-
-.check-list li:last-child {
-  border-bottom: 0;
-}
-
+.check-list li:last-child { border-bottom: 0; }
 .check-list span {
   display: grid;
   width: 1.45rem;
@@ -761,33 +508,11 @@ h1 {
   font-size: 0.68rem;
   font-weight: 800;
 }
-
-.check-list strong {
-  flex: 1;
-  color: #d6d4cd;
-  font-weight: 500;
-}
-
-.check-list em {
-  color: var(--muted);
-  font-style: normal;
-  font-weight: 600;
-}
-
-.pass {
-  color: var(--green);
-  background: rgba(86, 185, 116, 0.14);
-}
-
-.fail {
-  color: var(--red);
-  background: rgba(229, 53, 43, 0.16);
-}
-
-.wait {
-  color: var(--dim);
-  background: #1a1d22;
-}
+.check-list strong { flex: 1; color: #d6d4cd; font-weight: 500; }
+.check-list em { color: var(--muted); font-style: normal; font-weight: 600; }
+.pass { color: var(--green); background: rgba(86, 185, 116, 0.14); }
+.fail { color: var(--red); background: rgba(229, 53, 43, 0.16); }
+.wait { color: var(--dim); background: #1a1d22; }
 
 .warning-band {
   margin: 1.4rem 0 0;
@@ -802,6 +527,7 @@ h1 {
   text-transform: uppercase;
 }
 
+/* ---------- triad ---------- */
 .triad {
   display: grid;
   grid-template-columns: 1.18fr 0.96fr 1.04fr;
@@ -817,24 +543,12 @@ h1 {
   box-shadow: none;
   position: relative;
 }
-
-.dark-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.035), transparent 32%),
-    radial-gradient(circle at 85% 10%, rgba(229, 53, 43, 0.08), transparent 40%);
-}
-
 .dark-card header {
   justify-content: space-between;
   gap: 1rem;
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid #1d2026;
 }
-
 .dark-card h2 {
   margin: 0;
   color: #cfcdc6;
@@ -843,12 +557,7 @@ h1 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-
-.dark-card header span {
-  color: var(--red);
-  font-size: 0.82rem;
-  font-weight: 600;
-}
+.dark-card header span { color: var(--red); font-size: 0.82rem; font-weight: 600; }
 
 .event-log {
   display: grid;
@@ -860,21 +569,36 @@ h1 {
   line-height: 1.55;
   list-style: none;
 }
-
 .event-log li {
   display: grid;
   grid-template-columns: 74px 1fr auto;
   gap: 0.5rem;
   color: #c9c7c0;
 }
+.event-log time { color: #5f646d; }
+.event-log strong { color: var(--red); font-weight: 600; }
 
-.event-log time {
+.log-flatline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem 1rem;
+  border-top: 1px solid #1d2026;
+}
+.log-flatline span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   color: #5f646d;
 }
-
-.event-log strong {
-  color: var(--red);
-  font-weight: 600;
+.log-flatline svg { flex: 1; height: 26px; overflow: visible; }
+.log-flatline b {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 9px var(--red);
+  animation: pdg-pulse 1.4s ease-in-out infinite;
 }
 
 .compact-rules ul {
@@ -884,53 +608,50 @@ h1 {
   padding: 0.5rem 1.5rem 1rem;
   list-style: none;
 }
-
 .compact-rules li {
   padding: 0.75rem 0;
   color: #d6d4cd;
   border-bottom: 1px solid #181b20;
 }
-
+.compact-rules li:last-child { border-bottom: 0; }
 .compact-rules li::before {
-  content: "x";
+  content: "\2620";
   margin-right: 0.75rem;
   color: var(--red);
   font-weight: 900;
 }
 
-.mini-cert {
-  padding-bottom: 1.2rem;
+.mini-cert { padding-bottom: 1.2rem; }
+.small-paper { position: relative; margin: 1.35rem; padding: 1.5rem 1.35rem 3.4rem; text-align: center; }
+.small-paper .mini-seal {
+  position: absolute;
+  right: 1.15rem;
+  bottom: 1.1rem;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(178, 58, 46, 0.12);
 }
-
-.small-paper {
-  margin: 1.35rem;
-  padding: 1.5rem 1.35rem;
-  text-align: center;
-}
-
+.small-paper .mini-seal::after { inset: 4px; }
+.small-paper .mini-seal .seal-icon { width: 50%; height: 54%; }
 .small-paper h3 {
   margin: 0.5rem 0;
   color: #b23a2e;
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.2rem;
 }
+.small-paper strong { color: #b23a2e; }
 
-.small-paper strong {
-  color: #b23a2e;
-}
-
+/* ---------- sections ---------- */
 .section {
   max-width: 1456px;
   margin: 0 auto;
   padding: 3.75rem clamp(1rem, 4vw, 2.5rem) 0;
 }
-
 .section-title {
   align-items: flex-start;
   gap: 1.35rem;
   margin-bottom: 1.75rem;
 }
-
 .section-title h2 {
   margin: 0 0 0.4rem;
   color: #eceae3;
@@ -940,74 +661,45 @@ h1 {
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
-
-.section-title p:last-child {
-  margin: 0;
-  color: var(--muted);
-  font-size: 1.05rem;
-}
+.section-title p:last-child { margin: 0; color: var(--muted); font-size: 1.05rem; }
 
 .rules-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
-
 .rules-grid article {
   padding: 1.25rem;
   background: #0f1115;
   border: 1px solid var(--line);
   border-radius: 1rem;
+  transition: border-color 0.15s ease;
 }
-
+.rules-grid article:hover { border-color: rgba(229, 53, 43, 0.4); }
 .rules-grid span {
   color: var(--red);
   font-family: "IBM Plex Mono", monospace;
   font-weight: 800;
 }
+.rules-grid h3 { margin: 1rem 0 0.6rem; }
+.rules-grid p { margin-bottom: 0; color: var(--muted); line-height: 1.55; }
 
-.rules-grid h3 {
-  margin: 1rem 0 0.6rem;
-}
-
-.rules-grid p {
-  margin-bottom: 0;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-.install-card {
-  overflow: hidden;
-  background: #0d0e11;
-  box-shadow: none;
-}
-
+/* ---------- install ---------- */
+.install-card { overflow: hidden; background: #0d0e11; box-shadow: none; }
 .tabs {
   justify-content: space-between;
   gap: 0.25rem;
   padding: 0 1.1rem 0 1.35rem;
   border-bottom: 1px solid #1d2026;
 }
-
-.tab,
-.copy-button {
-  cursor: pointer;
-  border: 0;
-  font-weight: 700;
-}
-
+.tab, .copy-button { cursor: pointer; border: 0; font-weight: 700; }
 .tab {
   padding: 1rem 1.1rem;
   color: var(--muted);
   background: transparent;
   border-bottom: 2px solid transparent;
 }
-
-.tab.active {
-  color: var(--red);
-  border-bottom-color: var(--red);
-}
-
+.tab.active { color: var(--red); border-bottom-color: var(--red); }
 .copy-button {
   margin-left: auto;
   padding: 0.6rem 1rem;
@@ -1016,20 +708,15 @@ h1 {
   border: 1px solid var(--line-2);
   border-radius: 0.5rem;
 }
+.copy-button:hover { border-color: #3a3f48; }
 
-.code-frame {
-  display: grid;
-  grid-template-columns: auto 1fr;
-}
-
-.line-numbers,
-.code-frame pre {
+.code-frame { display: grid; grid-template-columns: auto 1fr; }
+.line-numbers, .code-frame pre {
   margin: 0;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.84rem;
   line-height: 1.95;
 }
-
 .line-numbers {
   min-width: 54px;
   padding: 1.5rem 1rem;
@@ -1039,13 +726,7 @@ h1 {
   text-align: right;
   user-select: none;
 }
-
-.code-frame pre:last-child {
-  overflow-x: auto;
-  padding: 1.5rem 1.6rem;
-  color: #c4d0c0;
-}
-
+.code-frame pre:last-child { overflow-x: auto; padding: 1.5rem 1.6rem; color: #c4d0c0; }
 .code-note {
   margin: 0.85rem 0 0;
   color: var(--dim);
@@ -1053,27 +734,21 @@ h1 {
   font-size: 0.85rem;
 }
 
+/* ---------- certificate ---------- */
 .certificate-layout {
   display: grid;
   grid-template-columns: minmax(18rem, 0.42fr) minmax(0, 1fr);
   gap: 1.4rem;
   align-items: start;
 }
-
 .certificate-form {
   display: grid;
   gap: 1rem;
   padding: 1.25rem;
   box-shadow: none;
+  align-content: start;
 }
-
-.certificate-form label {
-  display: grid;
-  gap: 0.5rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
+.certificate-form label { display: grid; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; }
 .certificate-form input {
   width: 100%;
   min-height: 2.75rem;
@@ -1083,6 +758,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 0.5rem;
 }
+.certificate-form input:focus { outline: none; border-color: var(--red); }
 
 .paper {
   color: var(--ink);
@@ -1095,14 +771,12 @@ h1 {
   border-radius: 0.38rem;
   box-shadow: 0 40px 90px rgba(0, 0, 0, 0.6);
 }
-
 .certificate-card {
   position: relative;
   overflow: hidden;
   padding: clamp(2rem, 5vw, 3.4rem);
   text-align: center;
 }
-
 .certificate-card::before {
   content: "";
   position: absolute;
@@ -1110,7 +784,6 @@ h1 {
   pointer-events: none;
   border: 1px solid rgba(178, 58, 46, 0.48);
 }
-
 .certificate-card::after {
   content: "";
   position: absolute;
@@ -1118,10 +791,18 @@ h1 {
   pointer-events: none;
   border: 1px dashed rgba(98, 68, 44, 0.26);
 }
+.certificate-card > :not(.certificate-watermark):not(.cert-corner) { position: relative; z-index: 1; }
 
-.certificate-card > :not(.certificate-watermark):not(.cert-corner) {
-  position: relative;
-  z-index: 1;
+.certificate-watermark {
+  position: absolute;
+  z-index: 0;
+  right: clamp(1rem, 5vw, 3rem);
+  top: clamp(1rem, 4vw, 2rem);
+  width: clamp(7rem, 17vw, 11rem);
+  height: clamp(8rem, 19vw, 12rem);
+  color: rgba(178, 58, 46, 0.1);
+  transform: rotate(8deg);
+  pointer-events: none;
 }
 
 .cert-corner {
@@ -1133,34 +814,10 @@ h1 {
   opacity: 0.7;
   pointer-events: none;
 }
-
-.top-left-corner {
-  left: 1rem;
-  top: 1rem;
-  border-left: 3px solid;
-  border-top: 3px solid;
-}
-
-.top-right-corner {
-  right: 1rem;
-  top: 1rem;
-  border-right: 3px solid;
-  border-top: 3px solid;
-}
-
-.bottom-left-corner {
-  left: 1rem;
-  bottom: 1rem;
-  border-left: 3px solid;
-  border-bottom: 3px solid;
-}
-
-.bottom-right-corner {
-  right: 1rem;
-  bottom: 1rem;
-  border-right: 3px solid;
-  border-bottom: 3px solid;
-}
+.top-left-corner { left: 1rem; top: 1rem; border-left: 3px solid; border-top: 3px solid; }
+.top-right-corner { right: 1rem; top: 1rem; border-right: 3px solid; border-top: 3px solid; }
+.bottom-left-corner { left: 1rem; bottom: 1rem; border-left: 3px solid; border-bottom: 3px solid; }
+.bottom-right-corner { right: 1rem; bottom: 1rem; border-right: 3px solid; border-bottom: 3px solid; }
 
 .paper-kicker {
   margin-bottom: 1rem;
@@ -1170,16 +827,14 @@ h1 {
   letter-spacing: 0.25em;
   text-transform: uppercase;
 }
-
 .certificate-card h2 {
   margin-bottom: 0.8rem;
   color: #231c15;
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(2.65rem, 5.6vw, 4.25rem);
   line-height: 0.98;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.45);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 }
-
 .certificate-ribbon {
   display: inline-flex;
   align-items: center;
@@ -1197,7 +852,6 @@ h1 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-
 .certificate-card p {
   max-width: 36rem;
   margin-inline: auto;
@@ -1205,7 +859,6 @@ h1 {
   font-size: 1.05rem;
   line-height: 1.6;
 }
-
 .certificate-stats {
   display: flex;
   justify-content: center;
@@ -1213,14 +866,12 @@ h1 {
   margin: 1.75rem 0;
   font-family: "IBM Plex Mono", monospace;
 }
-
 .certificate-stats div {
   min-width: 7.2rem;
   padding: 0.7rem 0.9rem;
   background: rgba(255, 248, 230, 0.38);
   border: 1px solid rgba(178, 58, 46, 0.2);
 }
-
 .certificate-stats span {
   display: block;
   color: #6b5e48;
@@ -1228,12 +879,7 @@ h1 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-
-.certificate-stats strong {
-  color: #3a2f25;
-  font-size: 1.35rem;
-}
-
+.certificate-stats strong { color: #3a2f25; font-size: 1.35rem; }
 .certificate-card footer {
   justify-content: space-between;
   gap: 1.5rem;
@@ -1241,7 +887,6 @@ h1 {
   margin: 0 auto;
   text-align: left;
 }
-
 .signature {
   display: block;
   width: 12rem;
@@ -1252,7 +897,6 @@ h1 {
   font-size: 1.45rem;
   font-style: italic;
 }
-
 .certificate-card footer span:not(.seal) {
   display: block;
   margin-top: 0.3rem;
@@ -1262,20 +906,28 @@ h1 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-
 .seal {
+  position: relative;
   display: grid;
   place-items: center;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
   color: #f0e3cd;
   background: radial-gradient(circle, #c0392b, #8e2a20);
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), 0 0 0 6px rgba(178, 58, 46, 0.12);
 }
-
-.seal::before {
-  inset: 19px;
+.seal::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(240, 227, 205, 0.5);
+  border-radius: 50%;
 }
+.seal-icon { width: 52%; height: 56%; color: #f0e3cd; position: relative; z-index: 1; }
 
+/* ---------- social / OG ---------- */
 .og-card {
   position: relative;
   display: flex;
@@ -1289,42 +941,24 @@ h1 {
   padding: 0 7%;
   background:
     radial-gradient(circle at 82% 42%, rgba(229, 53, 43, 0.18), transparent 19rem),
-    radial-gradient(circle at 20% 12%, rgba(215, 232, 226, 0.08), transparent 16rem),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.026) 0 1px, transparent 1px 5px),
     radial-gradient(130% 110% at 75% 30%, #16181d 0%, var(--bg) 70%);
   border: 1px solid var(--line);
   border-radius: 0.9rem;
   box-shadow: var(--shadow);
 }
-
 .og-card::before {
-  content: "\\2620   010 110 001   \\2620";
+  content: "\2620   010 110 001   \2620";
   position: absolute;
   left: 5%;
   right: 5%;
   top: 10%;
-  color: rgba(233, 231, 225, 0.055);
+  color: rgba(233, 231, 225, 0.05);
   font-family: "IBM Plex Mono", monospace;
   font-size: clamp(2rem, 5vw, 4rem);
   letter-spacing: 0.18em;
   white-space: pre;
 }
-
-.og-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(99, 15, 13, 0.28), transparent 28%, transparent 72%, rgba(99, 15, 13, 0.24)),
-    radial-gradient(circle at 90% 85%, rgba(255, 109, 34, 0.18), transparent 14rem);
-  pointer-events: none;
-}
-
-.og-card > * {
-  position: relative;
-  z-index: 1;
-}
-
+.og-card > * { position: relative; z-index: 1; }
 .og-card h2 {
   margin: 1.5rem 0 1rem;
   color: #eceae3;
@@ -1334,14 +968,15 @@ h1 {
   line-height: 0.9;
   text-transform: uppercase;
 }
-
 .og-card p:last-child {
   color: var(--red);
   font-size: clamp(1rem, 2.2vw, 1.45rem);
   font-weight: 800;
 }
-
 .og-emblem {
+  position: relative;
+  display: grid;
+  place-items: center;
   width: min(230px, 26vw);
   height: min(230px, 26vw);
   flex: 0 0 auto;
@@ -1349,11 +984,9 @@ h1 {
   border-radius: 50%;
   box-shadow: 0 0 60px rgba(229, 53, 43, 0.45), inset 0 0 40px rgba(229, 53, 43, 0.3);
 }
+.og-emblem-icon { width: 44%; height: 50%; color: #e5352b; }
 
-.og-emblem::before {
-  inset: 24%;
-}
-
+/* ---------- footer ---------- */
 .site-footer {
   justify-content: space-between;
   gap: 1rem;
@@ -1364,150 +997,95 @@ h1 {
   border-top: 1px solid #1a1d22;
   font-size: 0.9rem;
 }
+.site-footer > span { display: inline-flex; align-items: center; gap: 0.75rem; }
 
-.site-footer > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
+/* ---------- keyframes ---------- */
+@keyframes pdg-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@keyframes pdg-glow {
+  0%, 100% { box-shadow: 0 0 40px rgba(229, 53, 43, 0.36), inset 0 0 30px rgba(229, 53, 43, 0.2); }
+  50% { box-shadow: 0 0 64px rgba(229, 53, 43, 0.6), inset 0 0 38px rgba(229, 53, 43, 0.3); }
+}
+@keyframes pdg-float {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-8px) rotate(var(--r, 0deg)); }
+}
+@keyframes pdg-flicker {
+  0%, 100% { opacity: 0.92; }
+  45% { opacity: 1; }
+  60% { opacity: 0.82; }
+}
+@keyframes pdg-drip {
+  0% { transform: translate(-50%, 0); opacity: 0; }
+  15% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translate(-50%, 22px); opacity: 0; }
 }
 
-@keyframes pdg-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.35;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .float-skull, .drip::after, .live-dot, .emblem-ring, .log-flatline b { animation: none !important; }
 }
 
 @media (max-width: 1120px) {
-  .hero-grid,
-  .triad,
-  .certificate-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .ci-core {
-    grid-template-columns: auto 1fr;
-  }
-
-  .triad {
-    padding-top: 1rem;
-  }
+  .hero-grid, .triad, .certificate-layout { grid-template-columns: 1fr; }
+  .ci-core { grid-template-columns: auto 1fr; }
+  .triad { padding-top: 1rem; }
 }
 
 @media (max-width: 760px) {
-  .site-header,
-  .nav-links,
-  .ci-core,
-  .certificate-card footer,
-  .site-footer {
+  .site-header, .nav-links, .ci-core, .certificate-card footer, .site-footer {
     align-items: flex-start;
     flex-direction: column;
   }
-
-  .site-header {
-    height: auto;
-    padding-block: 1rem;
-  }
-
-  .hero-shell {
-    padding-top: 2.2rem;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    width: auto;
-    max-width: 100%;
-  }
-
-  .overline,
-  .danger-line,
-  .subline {
-    overflow-wrap: anywhere;
-  }
-
-  .overline {
-    letter-spacing: 0.16em;
-  }
-
-  .ci-core {
-    gap: 1.2rem;
-  }
-
-  .emblem {
-    width: 140px;
-    height: 140px;
-  }
-
-  .rules-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .tabs {
-    align-items: stretch;
-    flex-wrap: wrap;
-    padding: 0.6rem;
-  }
-
-  .copy-button {
-    margin-left: 0;
-  }
-
-  .code-frame {
-    grid-template-columns: 1fr;
-  }
-
-  .line-numbers {
-    display: none;
-  }
-
-  .certificate-stats {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .og-card {
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 360px;
-    aspect-ratio: auto;
-  }
+  .site-header { height: auto; padding-block: 1rem; }
+  .hero-shell { padding-top: 2.2rem; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .title-wrap { width: auto; }
+  .overline, .danger-line, .subline { overflow-wrap: anywhere; }
+  .overline { letter-spacing: 0.16em; }
+  .ci-core { gap: 1.2rem; }
+  .emblem { width: 140px; height: 140px; }
+  .rules-grid { grid-template-columns: 1fr; }
+  .tabs { align-items: stretch; flex-wrap: wrap; padding: 0.6rem; }
+  .copy-button { margin-left: 0; }
+  .code-frame { grid-template-columns: 1fr; }
+  .line-numbers { display: none; }
+  .certificate-stats { flex-direction: column; gap: 0.8rem; }
+  .og-card { align-items: flex-start; flex-direction: column; justify-content: center; min-height: 360px; aspect-ratio: auto; }
 }
 
 @media (max-width: 520px) {
-  h1 {
-    font-size: 4rem;
-  }
-
-  .ritual-strip {
-    display: flex;
-  }
-
-  .ritual-strip span {
-    width: 100%;
-  }
-
-  .ritual-strip span + span::before {
-    margin: 0 0.5rem 0 0;
-  }
-
-  .event-log li {
-    grid-template-columns: 1fr;
-  }
+  h1 { font-size: 3.6rem; }
+  .ritual-strip { display: flex; }
+  .ritual-strip span { width: 100%; }
+  .ritual-strip span + span::before { margin: 0 0.5rem 0 0; }
+  .event-log li { grid-template-columns: 1fr; }
 }
-
 </style>
   </head>
   <body>
+    <!-- reusable guillotine icon: posts + top beam + angled blade + base -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="guillotine-icon" viewBox="0 0 100 118">
+        <g fill="currentColor">
+          <rect x="18" y="0" width="10" height="6" rx="1"/>
+          <rect x="72" y="0" width="10" height="6" rx="1"/>
+          <rect x="15" y="6" width="70" height="8" rx="1.5"/>
+          <rect x="24" y="6" width="6" height="104" rx="1"/>
+          <rect x="70" y="6" width="6" height="104" rx="1"/>
+          <rect x="35" y="15" width="30" height="8" rx="1"/>
+          <rect x="18" y="104" width="64" height="9" rx="1.5"/>
+          <polygon points="32,23 68,23 68,55 32,80"/>
+        </g>
+        <polygon points="32,80 68,55 68,62 32,80" fill="rgba(255,255,255,0.32)"/>
+      </symbol>
+    </svg>
+
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Permanent Deaht Git home">
-        <span class="guillotine-mark" aria-hidden="true"></span>
+        <svg class="guillotine-mark" aria-hidden="true"><use href="#guillotine-icon"></use></svg>
         <span>Permanent Deaht Git</span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
@@ -1515,7 +1093,7 @@ h1 {
         <a href="#rules">Rules</a>
         <a href="#install">Install</a>
         <a href="#certificate">Certificate</a>
-        <a class="status-pill" href="https://github.com/davethomas34/Permanent-Deaht-Git">System Armed</a>
+        <a class="status-pill" href="https://github.com/davethomas34/Permanent-Deaht-Git"><span class="live-dot"></span>System Armed</a>
       </nav>
     </header>
 
@@ -1524,32 +1102,30 @@ h1 {
         <div class="noise-field" aria-hidden="true">
           <span class="binary left">010 111 001 101 000 111 010 101 011 001 110 010 100 111 001 011</span>
           <span class="binary right">101 001 111 010 001 010 111 100 010 110 001 101 000 111 010 001</span>
-          <span class="code-rain left-code">if (commit.failed) {<br>&nbsp;&nbsp;guillotine.arm();<br>&nbsp;&nbsp;runner.erase();<br>}<br>throw new DeahtError();<br>startFromVoid();</span>
-          <span class="code-rain right-code">npm test --if-present<br>lint: passed<br>tests: failed<br>mercy: denied<br>certificate: withheld</span>
           <span class="binary-skull">00111100<br>01111110<br>11011011<br>11111111<br>01100110<br>00100100</span>
           <span class="specter skull-a">&#9760;</span>
           <span class="specter skull-b">&#9760;</span>
-          <span class="specter skull-c">&#9760;</span>
-          <span class="graveyard">+ &nbsp;+ &nbsp;&nbsp;+<br>&nbsp;&nbsp;+ &nbsp;+ &nbsp;&nbsp;+</span>
-          <span class="bone bone-a"></span>
-          <span class="bone bone-b"></span>
-          <span class="bone bone-c"></span>
-          <span class="fireline top-left"></span>
-          <span class="fireline bottom-right"></span>
-          <span class="ember-field"></span>
           <span class="haze one"></span>
-          <span class="haze two"></span>
         </div>
 
         <div class="hero-grid">
           <section class="hero-copy" aria-labelledby="hero-title">
             <p class="overline">Powered by Code Guillotine</p>
-            <h1 id="hero-title">Permanent<br>Deaht Git</h1>
+            <div class="title-wrap">
+              <span class="float-skull s1" aria-hidden="true">&#9760;</span>
+              <span class="float-skull s2" aria-hidden="true">&#9760;</span>
+              <span class="float-skull s3" aria-hidden="true">&#9760;</span>
+              <h1 id="hero-title">Permanent<br>Deaht Git</h1>
+              <span class="drip d1" aria-hidden="true"></span>
+              <span class="drip d2" aria-hidden="true"></span>
+              <span class="drip d3" aria-hidden="true"></span>
+              <span class="drip d4" aria-hidden="true"></span>
+            </div>
             <p class="danger-line">One error. Total codebase annihilation.</p>
             <p class="subline">No imports. No mercy. No undo. Spelled wrong. Enforced worse.</p>
             <div class="hero-actions">
               <a class="button primary" href="#install">
-                <span class="button-mark" aria-hidden="true"></span>
+                <svg class="button-mark" aria-hidden="true"><use href="#guillotine-icon"></use></svg>
                 Install Guillotine
               </a>
               <a class="button secondary" href="#rules">View Rules</a>
@@ -1569,7 +1145,7 @@ h1 {
             <div class="ci-core">
               <div class="emblem" aria-hidden="true">
                 <span class="emblem-ring"></span>
-                <span class="guillotine-large"></span>
+                <svg class="guillotine-large"><use href="#guillotine-icon"></use></svg>
               </div>
               <div>
                 <p class="mono-fail">Commit failed. 0 survivors.</p>
@@ -1595,6 +1171,13 @@ h1 {
             <span>All traces erased.</span>
           </header>
           <ol id="deathLog" class="event-log"></ol>
+          <div class="log-flatline" aria-hidden="true">
+            <span>FLATLINE</span>
+            <svg viewBox="0 0 280 34" preserveAspectRatio="none">
+              <polyline points="0,17 60,17 72,17 80,6 90,28 100,2 110,30 120,17 150,17 162,17 170,9 178,25 186,17 280,17" fill="none" stroke="#e5352b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 0 6px rgba(229,53,43,.7))"></polyline>
+            </svg>
+            <b></b>
+          </div>
         </article>
 
         <article class="dark-card compact-rules">
@@ -1620,13 +1203,14 @@ h1 {
             <h3>{your-username}</h3>
             <p>survived Permanent Deaht Git and committed with honor.</p>
             <strong>No imports. No mercy. No undo.</strong>
+            <span class="seal mini-seal" aria-hidden="true"><svg class="seal-icon"><use href="#guillotine-icon"></use></svg></span>
           </div>
         </article>
       </section>
 
       <section class="section" id="rules">
         <div class="section-title">
-          <span class="guillotine-mark" aria-hidden="true"></span>
+          <svg class="guillotine-mark" aria-hidden="true"><use href="#guillotine-icon"></use></svg>
           <div>
             <p class="overline">The doctrine</p>
             <h2>The Full Rules</h2>
@@ -1644,7 +1228,7 @@ h1 {
 
       <section class="section" id="install">
         <div class="section-title">
-          <span class="guillotine-mark" aria-hidden="true"></span>
+          <svg class="guillotine-mark" aria-hidden="true"><use href="#guillotine-icon"></use></svg>
           <div>
             <p class="overline">Copy, paste, pray</p>
             <h2>Install the Guillotine</h2>
@@ -1668,7 +1252,7 @@ h1 {
 
       <section class="section certificate-section" id="certificate">
         <div class="section-title">
-          <span class="guillotine-mark" aria-hidden="true"></span>
+          <svg class="guillotine-mark" aria-hidden="true"><use href="#guillotine-icon"></use></svg>
           <div>
             <p class="overline">Clean build detected</p>
             <h2>Survive to Earn This</h2>
@@ -1690,7 +1274,7 @@ h1 {
           </form>
 
           <article class="paper certificate-card" aria-label="Certificate preview">
-            <span class="certificate-watermark" aria-hidden="true"></span>
+            <svg class="certificate-watermark" aria-hidden="true"><use href="#guillotine-icon"></use></svg>
             <span class="cert-corner top-left-corner" aria-hidden="true"></span>
             <span class="cert-corner top-right-corner" aria-hidden="true"></span>
             <span class="cert-corner bottom-left-corner" aria-hidden="true"></span>
@@ -1709,7 +1293,7 @@ h1 {
                 <strong class="signature">G. Reaper</strong>
                 <span>Guillotine Administrator</span>
               </div>
-              <span class="seal" aria-hidden="true"></span>
+              <span class="seal" aria-hidden="true"><svg class="seal-icon"><use href="#guillotine-icon"></use></svg></span>
             </footer>
           </article>
         </div>
@@ -1717,7 +1301,7 @@ h1 {
 
       <section class="section social-section" id="social">
         <div class="section-title">
-          <span class="guillotine-mark" aria-hidden="true"></span>
+          <svg class="guillotine-mark" aria-hidden="true"><use href="#guillotine-icon"></use></svg>
           <div>
             <p class="overline">Reddit bait preview</p>
             <h2>Social Card</h2>
@@ -1729,18 +1313,17 @@ h1 {
             <h2>Permanent<br>Deaht Git</h2>
             <p>One error = total codebase annihilation.</p>
           </div>
-          <span class="og-emblem" aria-hidden="true"></span>
+          <span class="og-emblem" aria-hidden="true"><svg class="og-emblem-icon"><use href="#guillotine-icon"></use></svg></span>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span><span class="guillotine-mark muted-mark" aria-hidden="true"></span> Permanent Deaht Git: a theatrical CI ritual. No real files were harmed.</span>
+      <span><svg class="guillotine-mark muted-mark" aria-hidden="true"><use href="#guillotine-icon"></use></svg> Permanent Deaht Git: a theatrical CI ritual. No real files were harmed.</span>
       <span>v1.0.0 / MIT / annihilation pending</span>
     </footer>
 
     <script>
-// Inlined from site.js
 const snippets = {
   workflow: `name: Permanent Deaht Git
 
@@ -1879,8 +1462,6 @@ renderDeathLog();
 setupTabs();
 setupCopyButtons();
 setupCertificatePreview();
-
 </script>
   </body>
 </html>
-
